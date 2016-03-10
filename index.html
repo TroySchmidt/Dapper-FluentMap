@@ -1,73 +1,59 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en-us">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Dapper.FluentMap : Provides a simple API to map POCO properties to database columns when using Dapper.">
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Dapper.FluentMap</title>
+    <meta charset="UTF-8">
+    <title>Dapper.FluentMap by henkmollema</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
-
   <body>
+    <section class="page-header">
+      <h1 class="project-name">Dapper.FluentMap</h1>
+      <h2 class="project-tagline">Provides a simple API to map POCO properties to database columns when using Dapper.</h2>
+      <a href="https://github.com/henkmollema/Dapper-FluentMap" class="btn">View on GitHub</a>
+      <a href="https://github.com/henkmollema/Dapper-FluentMap/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/henkmollema/Dapper-FluentMap/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/henkmollema/Dapper-FluentMap">View on GitHub</a>
-
-          <h1 id="project_title">Dapper.FluentMap</h1>
-          <h2 id="project_tagline">Provides a simple API to map POCO properties to database columns when using Dapper.</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/henkmollema/Dapper-FluentMap/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/henkmollema/Dapper-FluentMap/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h1>
-<a id="dapperfluentmap" class="anchor" href="#dapperfluentmap" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="http://henkmollema.github.io/Dapper-FluentMap">Dapper.FluentMap</a>
+    <section class="main-content">
+      <h1>
+<a id="dapperfluentmap" class="anchor" href="#dapperfluentmap" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="http://henkmollema.github.io/Dapper-FluentMap">Dapper.FluentMap</a>
 </h1>
 
-<p><a href="https://ci.appveyor.com/project/henkmollema/dapper-fluentmap"><img src="https://ci.appveyor.com/api/projects/status/x6grw3cjuyud9c76?svg=true" alt="Build status"></a>
-<a href="https://www.nuget.org/packages/Dapper.FluentMap/" title="NuGet version"><img src="http://img.shields.io/nuget/v/Dapper.FluentMap.svg?style=flat" alt="NuGet Version"></a>
-<a href="https://www.nuget.org/packages/Dapper.FluentMap/"><img src="http://img.shields.io/nuget/dt/Dapper.FluentMap.svg?style=flat" alt="NuGet Downloads"></a></p>
+<p><a href="https://ci.appveyor.com/project/henkmollema/dapper-fluentmap/branch/master"><img src="https://ci.appveyor.com/api/projects/status/x6grw3cjuyud9c76/branch/master?svg=true" alt="Build status"></a></p>
 
 <h3>
-<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h3>
+<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h3>
 
 <p>This <a href="https://github.com/StackExchange/dapper-dot-net">Dapper</a> extension allows you to fluently congfigure the mapping between POCO properties and database columns. This keeps your POCO's clean of mapping attributes. The functionality is similar to <a href="http://msdn.microsoft.com/nl-nl/data/jj591617.aspx">Entity Framework Fluent API</a>. If you have any questions, suggestions or bugs, please don't hesitate to <a href="mailto:henkmollema@gmail.com">contact me</a> or create an issue.</p>
 
 <hr>
 
 <h3>
-<a id="download" class="anchor" href="#download" aria-hidden="true"><span class="octicon octicon-link"></span></a>Download</h3>
+<a id="download" class="anchor" href="#download" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Download</h3>
 
 <p><a href="https://www.nuget.org/packages/Dapper.FluentMap"><img src="http://i.imgur.com/Rs483do.png" alt="Download Dapper.FluentMap on NuGet" title="Download Dapper.FluentMap on NuGet"></a></p>
 
 <hr>
 
 <h3>
-<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h3>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h3>
 
 <h4>
-<a id="manual-mapping" class="anchor" href="#manual-mapping" aria-hidden="true"><span class="octicon octicon-link"></span></a>Manual mapping</h4>
+<a id="manual-mapping" class="anchor" href="#manual-mapping" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Manual mapping</h4>
 
 <p>You can map property names manually using the <a href="https://github.com/henkmollema/Dapper-FluentMap/blob/master/src/Dapper.FluentMap/Mapping/EntityMap.cs"><code>EntityMap&lt;TEntity&gt;</code></a> class. When creating a derived class, the constructor gives you access to the <code>Map</code> method, allowing you to specify to which database column name a certain property of <code>TEntity</code> should map to.</p>
 
-<div class="highlight highlight-csharp"><pre><span class="pl-s">public</span> <span class="pl-s">class</span> <span class="pl-en">ProductMap</span> : <span class="pl-st">EntityMap</span>&lt;<span class="pl-st">Product</span>&gt;
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">ProductMap</span> : <span class="pl-k">EntityMap</span>&lt;<span class="pl-k">Product</span>&gt;
 {
-    <span class="pl-s">public</span> <span class="pl-en">ProductMap</span>()
+    <span class="pl-k">public</span> <span class="pl-en">ProductMap</span>()
     {
         <span class="pl-c">// Map property 'Name' to column 'strName'.</span>
         Map(p =&gt; p.Name)
-            .ToColumn(<span class="pl-s1"><span class="pl-pds">"</span>strName<span class="pl-pds">"</span></span>);
+            .ToColumn(<span class="pl-s"><span class="pl-pds">"</span>strName<span class="pl-pds">"</span></span>);
 
         <span class="pl-c">// Ignore the 'LastModified' property when mapping.</span>
         Map(p =&gt; p.LastModified)
@@ -79,40 +65,40 @@
 
 <p><strong>Initialization:</strong></p>
 
-<div class="highlight highlight-csharp"><pre>FluentMapper.Intialize(config =&gt;
+<div class="highlight highlight-source-cs"><pre>FluentMapper.Initialize(config =&gt;
                        {
-                           config.AddMap(<span class="pl-s">new</span> ProductMap());
+                           config.AddMap(<span class="pl-k">new</span> ProductMap());
                        });</pre></div>
 
 <h4>
-<a id="convention-based-mapping" class="anchor" href="#convention-based-mapping" aria-hidden="true"><span class="octicon octicon-link"></span></a>Convention based mapping</h4>
+<a id="convention-based-mapping" class="anchor" href="#convention-based-mapping" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Convention based mapping</h4>
 
 <p>When you have a lot of entity types, creating manual mapping classes can become plumbing. If your column names adhere to some kind of naming convention, you might be better off by configuring a mapping convention.</p>
 
 <p>You can create a convention by creating a class which derives from the <a href="https://github.com/henkmollema/Dapper-FluentMap/blob/master/src/Dapper.FluentMap/Conventions/Convention.cs"><code>Convention</code></a> class. In the contructor you can configure the property conventions:</p>
 
-<div class="highlight highlight-csharp"><pre><span class="pl-s">public</span> <span class="pl-s">class</span> <span class="pl-en">TypePrefixConvention</span> : <span class="pl-st">Convention</span>
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">TypePrefixConvention</span> : <span class="pl-k">Convention</span>
 {
-    <span class="pl-s">public</span> <span class="pl-en">TypePrefixConvention</span>()
+    <span class="pl-k">public</span> <span class="pl-en">TypePrefixConvention</span>()
     {
         <span class="pl-c">// Map all properties of type int and with the name 'id' to column 'autID'.</span>
-        Properties&lt;<span class="pl-st">int</span>&gt;()
-            .Where(c =&gt; c.Name.ToLower() == <span class="pl-s1"><span class="pl-pds">"</span>id<span class="pl-pds">"</span></span>)
-            .Configure(c =&gt; c.HasColumnName(<span class="pl-s1"><span class="pl-pds">"</span>autID<span class="pl-pds">"</span></span>));
+        Properties&lt;<span class="pl-k">int</span>&gt;()
+            .Where(c =&gt; c.Name.ToLower() == <span class="pl-s"><span class="pl-pds">"</span>id<span class="pl-pds">"</span></span>)
+            .Configure(c =&gt; c.HasColumnName(<span class="pl-s"><span class="pl-pds">"</span>autID<span class="pl-pds">"</span></span>));
 
         <span class="pl-c">// Prefix all properties of type string with 'str' when mapping to column names.</span>
-        Properties&lt;<span class="pl-st">string</span>&gt;()
-            .Configure(c =&gt; c.HasPrefix(<span class="pl-s1"><span class="pl-pds">"</span>str<span class="pl-pds">"</span></span>));
+        Properties&lt;<span class="pl-k">string</span>&gt;()
+            .Configure(c =&gt; c.HasPrefix(<span class="pl-s"><span class="pl-pds">"</span>str<span class="pl-pds">"</span></span>));
 
         <span class="pl-c">// Prefix all properties of type int with 'int' when mapping to column names.</span>
-        Properties&lt;<span class="pl-st">int</span>&gt;()
-            .Configure(c =&gt; c.HasPrefix(<span class="pl-s1"><span class="pl-pds">"</span>int<span class="pl-pds">"</span></span>));
+        Properties&lt;<span class="pl-k">int</span>&gt;()
+            .Configure(c =&gt; c.HasPrefix(<span class="pl-s"><span class="pl-pds">"</span>int<span class="pl-pds">"</span></span>));
     }
 }</pre></div>
 
 <p>When initializing Dapper.FluentMap with conventions, the entities on which a convention applies must be configured. You can choose to either configure the entities explicitly or use assembly scanning.</p>
 
-<div class="highlight highlight-csharp"><pre>FluentMapper.Intialize(config =&gt;
+<div class="highlight highlight-source-cs"><pre>FluentMapper.Initialize(config =&gt;
     {
         <span class="pl-c">// Configure entities explicitly.</span>
         config.AddConvention&lt;TypePrefixConvention&gt;()
@@ -121,24 +107,24 @@
 
         <span class="pl-c">// Configure all entities in a certain assembly with an optional namespaces filter.</span>
         config.AddConvention&lt;TypePrefixConvention&gt;()
-              .ForEntitiesInAssembly(<span class="pl-k">typeof</span>(Product).Assembly, <span class="pl-s1"><span class="pl-pds">"</span>App.Domain.Model<span class="pl-pds">"</span></span>);
+              .ForEntitiesInAssembly(<span class="pl-k">typeof</span>(Product).Assembly, <span class="pl-s"><span class="pl-pds">"</span>App.Domain.Model<span class="pl-pds">"</span></span>);
 
         <span class="pl-c">// Configure all entities in the current assembly with an optional namespaces filter.</span>
         config.AddConvention&lt;TypePrefixConvention&gt;()
-              .ForEntitiesInCurrentAssembly(<span class="pl-s1"><span class="pl-pds">"</span>App.Domain.Model.Catalog<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>App.Domain.Model.Order<span class="pl-pds">"</span></span>);
+              .ForEntitiesInCurrentAssembly(<span class="pl-s"><span class="pl-pds">"</span>App.Domain.Model.Catalog<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>App.Domain.Model.Order<span class="pl-pds">"</span></span>);
     });</pre></div>
 
 <h5>
-<a id="transformations" class="anchor" href="#transformations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Transformations</h5>
+<a id="transformations" class="anchor" href="#transformations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Transformations</h5>
 
 <p>The convention API allows you to configure transformation of property names to database column names. An implementation would look like this:</p>
 
-<div class="highlight highlight-csharp"><pre><span class="pl-s">public</span> <span class="pl-s">class</span> <span class="pl-en">PropertyTransformConvention</span> : <span class="pl-st">Convention</span>
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">PropertyTransformConvention</span> : <span class="pl-k">Convention</span>
 {
-    <span class="pl-s">public</span> <span class="pl-en">PropertyTransformConvention</span>()
+    <span class="pl-k">public</span> <span class="pl-en">PropertyTransformConvention</span>()
     {
         Properties()
-            .Configure(c =&gt; c.Transform(s =&gt; Regex.Replace(input: s, pattern: <span class="pl-s1"><span class="pl-pds">"</span>([A-Z])([A-Z][a-z])|([a-z0-9])([A-Z])<span class="pl-pds">"</span></span>, replacement: <span class="pl-s1"><span class="pl-pds">"</span>$1$3_$2$4<span class="pl-pds">"</span></span>)));
+            .Configure(c =&gt; c.Transform(s =&gt; Regex.Replace(input: s, pattern: <span class="pl-s"><span class="pl-pds">"</span>([A-Z])([A-Z][a-z])|([a-z0-9])([A-Z])<span class="pl-pds">"</span></span>, replacement: <span class="pl-s"><span class="pl-pds">"</span>$1$3_$2$4<span class="pl-pds">"</span></span>)));
     }
 }</pre></div>
 
@@ -147,43 +133,43 @@
 <hr>
 
 <h3>
-<a id="dommel" class="anchor" href="#dommel" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://github.com/henkmollema/Dommel">Dommel</a>
+<a id="dommel" class="anchor" href="#dommel" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/henkmollema/Dommel">Dommel</a>
 </h3>
 
 <p>Dommel contains a set of extensions methods providing easy CRUD operations using Dapper. One of the goals was to provide extension points for resolving table and column names. <a href="https://github.com/henkmollema/Dapper-FluentMap/tree/master/src/Dapper.FluentMap.Dommel">Dapper.FluentMap.Dommel</a> implements certain interfaces of Dommel and uses the configured mapping. It also provides more mapping functionality.</p>
 
 <h4>
-<a id="pm-install-package-dapperfluentmapdommel" class="anchor" href="#pm-install-package-dapperfluentmapdommel" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://www.nuget.org/packages/Dapper.FluentMap.Dommel"><code>PM&gt; Install-Package Dapper.FluentMap.Dommel</code></a>
+<a id="pm-install-package-dapperfluentmapdommel" class="anchor" href="#pm-install-package-dapperfluentmapdommel" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://www.nuget.org/packages/Dapper.FluentMap.Dommel"><code>PM&gt; Install-Package Dapper.FluentMap.Dommel</code></a>
 </h4>
 
 <h4>
-<a id="usage-1" class="anchor" href="#usage-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h4>
+<a id="usage-1" class="anchor" href="#usage-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h4>
 
 <h5>
-<a id="dommelentitymaptentity" class="anchor" href="#dommelentitymaptentity" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>DommelEntityMap&lt;TEntity&gt;</code>
+<a id="dommelentitymaptentity" class="anchor" href="#dommelentitymaptentity" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>DommelEntityMap&lt;TEntity&gt;</code>
 </h5>
 
 <p>This class derives from <code>EntityMap&lt;TEntity&gt;</code> and allows you to map an entity to a database table using the <code>ToTable()</code> method:</p>
 
-<div class="highlight highlight-csharp"><pre><span class="pl-s">public</span> <span class="pl-s">class</span> <span class="pl-en">ProductMap</span> : <span class="pl-st">DommelEntityMap</span>&lt;<span class="pl-st">TEntity</span>&gt;
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">ProductMap</span> : <span class="pl-k">DommelEntityMap</span>&lt;<span class="pl-k">TEntity</span>&gt;
 {
-    <span class="pl-s">public</span> <span class="pl-en">ProductMap</span>()
+    <span class="pl-k">public</span> <span class="pl-en">ProductMap</span>()
     {
-        ToTable(<span class="pl-s1"><span class="pl-pds">"</span>tblProduct<span class="pl-pds">"</span></span>);      
+        ToTable(<span class="pl-s"><span class="pl-pds">"</span>tblProduct<span class="pl-pds">"</span></span>);      
 
         <span class="pl-c">// ...</span>
     }
 }</pre></div>
 
 <h5>
-<a id="dommelpropertymaptentity" class="anchor" href="#dommelpropertymaptentity" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>DommelPropertyMap&lt;TEntity&gt;</code>
+<a id="dommelpropertymaptentity" class="anchor" href="#dommelpropertymaptentity" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>DommelPropertyMap&lt;TEntity&gt;</code>
 </h5>
 
 <p>This class derives <code>PropertyMap&lt;TEntity&gt;</code> and allows you to specify the key property of an entity using the <code>IsKey</code> method:</p>
 
-<div class="highlight highlight-csharp"><pre><span class="pl-s">public</span> <span class="pl-s">class</span> <span class="pl-en">ProductMap</span> : <span class="pl-st">DommelEntityMap</span>&lt;<span class="pl-st">TEntity</span>&gt;
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">ProductMap</span> : <span class="pl-k">DommelEntityMap</span>&lt;<span class="pl-k">TEntity</span>&gt;
 {
-    <span class="pl-s">public</span> <span class="pl-en">ProductMap</span>()
+    <span class="pl-k">public</span> <span class="pl-en">ProductMap</span>()
     {
         Map(p =&gt; p.Id).IsKey();
     }
@@ -191,23 +177,21 @@
 
 <p>You can configure Dapper.FluentMap.Dommel in the <code>FluentMapper.Initialize()</code> method:</p>
 
-<div class="highlight highlight-csharp"><pre>FluentMapper.Intialize(config =&gt;
+<div class="highlight highlight-source-cs"><pre>FluentMapper.Initialize(config =&gt;
                        {
-                           config.AddMap(<span class="pl-s">new</span> ProductMap());
+                           config.AddMap(<span class="pl-k">new</span> ProductMap());
                            config.ForDommel();
                        });</pre></div>
-      </section>
-    </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Dapper.FluentMap maintained by <a href="https://github.com/henkmollema">henkmollema</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/henkmollema/Dapper-FluentMap">Dapper.FluentMap</a> is maintained by <a href="https://github.com/henkmollema">henkmollema</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
-    </div>
 
-              <script type="text/javascript">
+    </section>
+
+            <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
@@ -217,7 +201,6 @@
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
-
 
   </body>
 </html>
