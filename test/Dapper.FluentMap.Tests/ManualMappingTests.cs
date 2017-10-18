@@ -43,8 +43,7 @@ namespace Dapper.FluentMap.Tests
             var map = new MapWithOnePropertyMap();
 
             // Assert
-            Assert.NotEmpty(map.PropertyMaps);
-            Assert.Equal(1, map.PropertyMaps.Count);
+            Assert.Single(map.PropertyMaps);
         }
 
         [Fact]
@@ -101,7 +100,7 @@ namespace Dapper.FluentMap.Tests
             var entityMap = FluentMapper.EntityMaps.Single();
 
             // Assert
-            Assert.Equal(1, FluentMapper.EntityMaps.Count);
+            Assert.Single(FluentMapper.EntityMaps);
             Assert.Equal(typeof(TestEntity), entityMap.Key);
             Assert.IsType<MapWithOnePropertyMap>(entityMap.Value);
         }
@@ -136,6 +135,16 @@ namespace Dapper.FluentMap.Tests
             // todo: should be ReflectedType so the type is DerivedTestEntity
             Assert.Equal(typeof(TestEntity), idMap.PropertyInfo.DeclaringType);
             Assert.Equal(typeof(DerivedTestEntity), nameMap.PropertyInfo.DeclaringType);
+        }
+
+        [Fact]
+        public void PropertyMapShouldMapValueObjectProperties()
+        {
+            PreTest();
+
+            var map = new ValueObjectMap();
+            var email = map.PropertyMaps.First();
+            Assert.Equal(typeof(EmailTestValueObject), email.PropertyInfo.DeclaringType);
         }
 
         private static void PreTest()
@@ -188,6 +197,14 @@ namespace Dapper.FluentMap.Tests
 
         private class EmptyMap : EntityMap<TestEntity>
         {
+        }
+
+        private class ValueObjectMap : EntityMap<ValueObjectTestEntity>
+        {
+            public ValueObjectMap()
+            {
+                Map(x => x.Email.Address).ToColumn("email");
+            }
         }
     }
 }
