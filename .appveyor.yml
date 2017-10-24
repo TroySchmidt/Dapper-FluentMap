@@ -20,7 +20,7 @@ deploy:
     secure: J/kBk0D1gaPkP7Fo+RJW87ymHDLVuZ7+Gd3xWMlnZSqMA+8JYuJKLljpgP/UEWym
   skip_symbols: false
   symbol_server:           # remove to push symbols to SymbolSource.org
-  artifact: /Dommel.FluentMap.Dommel.Forked.*\.nupkg/
+  artifact: /Dapper.FluentMap.Dommel.Forked.*\.nupkg/
 environment:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   DOTNET_CLI_TELEMETRY_OPTOUT: 1
