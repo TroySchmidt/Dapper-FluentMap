@@ -11,6 +11,9 @@
     <PackageLicenseUrl>https://github.com/TroySchmidt/Dapper-FluentMap/blob/master/LICENSE</PackageLicenseUrl>
     <AssemblyVersion>1.6.0.0</AssemblyVersion>
     <FileVersion>1.6.0.0</FileVersion>
+    <Version>1.6.0</Version>
+    <PackageId>Dapper.FluentMap.Dommel.Forked</PackageId>
+    <RepositoryUrl>https://github.com/TroySchmidt/Dapper-FluentMap</RepositoryUrl>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dapper.FluentMap\Dapper.FluentMap.csproj" />
