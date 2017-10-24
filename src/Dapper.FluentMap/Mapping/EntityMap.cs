@@ -41,12 +41,15 @@ namespace Dapper.FluentMap.Mapping
         protected EntityMapBase()
         {
             PropertyMaps = new List<IPropertyMap>();
+            RelationshipMaps = new List<IRelationshipMap>();
         }
 
         /// <summary>
         /// Gets the collection of mapped properties.
         /// </summary>
         public IList<IPropertyMap> PropertyMaps { get; }
+
+        public IList<IRelationshipMap> RelationshipMaps { get; }
 
         /// <summary>
         /// Returns an instance of <typeparamref name="TPropertyMap"/> which can perform custom mapping
@@ -71,11 +74,42 @@ namespace Dapper.FluentMap.Mapping
         /// <returns>An instance of <typeparamref name="TPropertyMap"/>.</returns>
         protected abstract TPropertyMap GetPropertyMap(PropertyInfo info);
 
+        protected RelationshipMap<TEntity, TRelatedEntity> HasOne<TRelatedEntity>(Expression<Func<TEntity, object>> expression)
+        {
+            // Need to get property that is a type that isn't primitive that could be singular or collection.
+            // Then start to map the columns and build the where clause if it isn't provided.
+
+            var info = (PropertyInfo)ReflectionHelper.GetMemberInfo(expression);
+            var type = info.PropertyType;
+            var relationshipMap = GetRelationshipMap<TRelatedEntity>(info, RelationshipType.HasOne);
+            RelationshipMaps.Add(relationshipMap);
+            return relationshipMap;
+        }
+
+        protected RelationshipMap<TEntity, TRelatedEntity> WithMany<TRelatedEntity>(Expression<Func<TEntity, object>> expression)
+        {
+            var info = (PropertyInfo)ReflectionHelper.GetMemberInfo(expression);
+            var type = info.PropertyType;
+            var relationshipMap = GetRelationshipMap<TRelatedEntity>(info, RelationshipType.WithMany);
+            RelationshipMaps.Add(relationshipMap);
+            return relationshipMap;
+        }
+
+        protected abstract RelationshipMap<TEntity, TRelatedEntity> GetRelationshipMap<TRelatedEntity>(PropertyInfo info, RelationshipType relationshipType);
+
         private void ThrowIfDuplicateMapping(IPropertyMap map)
         {
             if (PropertyMaps.Any(p => p.PropertyInfo.Name == map.PropertyInfo.Name))
             {
                 throw new Exception($"Duplicate mapping detected. Property '{map.PropertyInfo.Name}' is already mapped to column '{map.ColumnName}'.");
+            }
+        }
+
+        private void ThrowIfDuplicateMapping(IRelationshipMap map)
+        {
+            if (RelationshipMaps.Any(p => p.PropertyInfo.Name == map.PropertyInfo.Name))
+            {
+                throw new Exception($"Duplicate mapping detected. Property '{map.PropertyInfo.Name}' is already mapped to column '{map.ReferencedEntityType}'.");
             }
         }
     }
@@ -91,6 +125,11 @@ namespace Dapper.FluentMap.Mapping
         protected override PropertyMap GetPropertyMap(PropertyInfo info)
         {
             return new PropertyMap(info);
+        }
+
+        protected override RelationshipMap<TEntity, TRelatedEntity> GetRelationshipMap<TRelatedEntity>(PropertyInfo info, RelationshipType relationshipType)
+        {
+            return new RelationshipMap<TEntity, TRelatedEntity>(info, relationshipType);
         }
     }
 }

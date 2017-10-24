@@ -8,9 +8,9 @@ using Dommel;
 namespace Dapper.FluentMap.Dommel.Resolvers
 {
     /// <summary>
-    /// Implements the <see cref="DommelMapper.IPropertyResolver"/> interface by using the configured mapping.
+    /// Implements the <see cref="IPropertyResolver"/> interface by using the configured mapping.
     /// </summary>
-    public class DommelPropertyResolver : DommelMapper.PropertyResolverBase
+    public class DommelPropertyResolver : PropertyResolverBase
     {
         /// <inheritdoc/>
         protected override IEnumerable<PropertyInfo> FilterComplexTypes(IEnumerable<PropertyInfo> properties)
@@ -45,7 +45,7 @@ namespace Dapper.FluentMap.Dommel.Resolvers
             }
             else
             {
-                foreach (var property in DommelMapper.Resolvers.Default.PropertyResolver.ResolveProperties(type))
+                foreach (var property in DommelMapper.PropertyResolver.ResolveProperties(type))
                 {
                     yield return property;
                 }

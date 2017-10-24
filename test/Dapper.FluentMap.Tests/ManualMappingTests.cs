@@ -3,6 +3,7 @@ using System.Linq;
 using Dapper.FluentMap.Mapping;
 using Dapper.FluentMap.TypeMaps;
 using Xunit;
+using System.Linq.Expressions;
 
 [assembly: CollectionBehavior(DisableTestParallelization = true)]
 namespace Dapper.FluentMap.Tests
@@ -147,6 +148,17 @@ namespace Dapper.FluentMap.Tests
             Assert.Equal(typeof(EmailTestValueObject), email.PropertyInfo.DeclaringType);
         }
 
+        [Fact(Skip = "Not implemented yet")]
+        public void RelationshipMapShouldWork()
+        {
+            PreTest();
+            var map = new RelationshipMap();
+            var relationship = map.RelationshipMaps.First();
+            var parameters = relationship.Relationship.Parameters;
+            var body = relationship.Relationship.Body.ToString();
+            Assert.Equal(relationship.Relationship.Compile().ToString(), "");
+        }
+
         private static void PreTest()
         {
             FluentMapper.EntityMaps.Clear();
@@ -204,6 +216,16 @@ namespace Dapper.FluentMap.Tests
             public ValueObjectMap()
             {
                 Map(x => x.Email.Address).ToColumn("email");
+            }
+        }
+
+        private class RelationshipMap : EntityMap<TestEntity>
+        {
+            public RelationshipMap()
+            {
+                Map(x => x.Id).ToColumn("id");
+                HasOne<RelatedEntity>(x => x.RelatedEntity).Where((a, b) => a.Id == b.TestEntityId);
+                WithMany<RelatedEntity>(x => x.ManyEntities).Where((a, b) => a.Id == b.TestEntityId);
             }
         }
     }

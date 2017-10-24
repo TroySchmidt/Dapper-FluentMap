@@ -7,9 +7,9 @@ using Dommel;
 namespace Dapper.FluentMap.Dommel.Resolvers
 {
     /// <summary>
-    /// Implements the <see cref="DommelMapper.IColumnNameResolver"/> interface by using the configured mapping.
+    /// Implements the <see cref="IColumnNameResolver"/> interface by using the configured mapping.
     /// </summary>
-    public class DommelColumnNameResolver : DommelMapper.IColumnNameResolver
+    public class DommelColumnNameResolver : IColumnNameResolver
     {
         /// <inheritdoc/>
         public string ResolveColumnName(PropertyInfo propertyInfo)
@@ -30,8 +30,8 @@ namespace Dapper.FluentMap.Dommel.Resolvers
                     }
                 }
             }
-
-            return DommelMapper.Resolvers.Default.ColumnNameResolver.ResolveColumnName(propertyInfo);
+            
+            return DommelMapper.ColumnNameResolver.ResolveColumnName(propertyInfo);
         }
     }
 }

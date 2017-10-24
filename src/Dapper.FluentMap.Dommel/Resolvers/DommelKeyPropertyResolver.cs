@@ -8,9 +8,9 @@ using Dommel;
 namespace Dapper.FluentMap.Dommel.Resolvers
 {
     /// <summary>
-    /// Implements the <see cref="DommelMapper.IKeyPropertyResolver"/> interface by using the configured mapping.
+    /// Implements the <see cref="IKeyPropertyResolver"/> interface by using the configured mapping.
     /// </summary>
-    public class DommelKeyPropertyResolver : DommelMapper.IKeyPropertyResolver
+    public class DommelKeyPropertyResolver : IKeyPropertyResolver
     {
         /// <inheritdoc/>
         public PropertyInfo ResolveKeyProperty(Type type)
@@ -25,7 +25,7 @@ namespace Dapper.FluentMap.Dommel.Resolvers
             IEntityMap entityMap;
             if (!FluentMapper.EntityMaps.TryGetValue(type, out entityMap))
             {
-                return DommelMapper.Resolvers.Default.KeyPropertyResolver.ResolveKeyProperty(type, out isIdentity);
+                return DommelMapper.KeyPropertyResolver.ResolveKeyProperty(type, out isIdentity);
             }
 
             var mapping = entityMap as IDommelEntityMap;
@@ -52,7 +52,7 @@ namespace Dapper.FluentMap.Dommel.Resolvers
             }
 
             // Fall back to the default mapping strategy.
-            return DommelMapper.Resolvers.Default.KeyPropertyResolver.ResolveKeyProperty(type, out isIdentity);
+            return DommelMapper.KeyPropertyResolver.ResolveKeyProperty(type, out isIdentity);
         }
     }
 }
